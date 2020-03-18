@@ -51,13 +51,13 @@ module.exports = {
   devServer: {
     sockHost: "localhost",
     disableHostCheck: true,
-    port: 9000, // 端口号
+    port: 9999, // 端口号
     host: "0.0.0.0",
     https: false, // https:{type:Boolean}
-    open: true, //配置自动启动浏览器
+    open: false, //配置自动启动浏览器
     proxy: {
       "/apis": {
-        target: "http://127.0.0.1:8080/api/v2", // 需要请求的地址
+        target: "http://local.yumancang.blog.com/api/v2", // 需要请求的地址
         // target: process.env.VUE_APP_URL,   // 需要请求的地址
         changeOrigin: true, // 是否跨域
         pathRewrite: {

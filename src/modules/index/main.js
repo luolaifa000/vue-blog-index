@@ -35,7 +35,7 @@ Vue.use(TextLoading)
 // router.afterEach(route => {
 //   iView.LoadingBar.finish();
 // });
-Vue.prototype.$staticUrl = "http://static.golang365.com/";
+Vue.prototype.$staticUrl = 'http://local.yumancang.blog.com/img/';
 if (process.env.NODE_ENV == "development") {
   Vue.prototype.$baseApiUrl = "http://localhost:8080/api/v2";
 } else {

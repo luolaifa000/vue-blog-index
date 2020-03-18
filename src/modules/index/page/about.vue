@@ -19,7 +19,7 @@
           <img src="../../../assets/laravel.png" alt="">
           <p class="laravel">Laravel
           </p>
-          <a href="https://github.com/sweida/laravel-blog-api" target="_blank" class="laravel">
+          <a href="https://github.com/luolaifa000/laravel-blog-api" target="_blank" class="laravel">
             <Icon type="logo-github" />
           </a>
 
@@ -28,7 +28,7 @@
         <div>
           <img src="../../../assets/vue.jpg" alt="">
           <p class="vue">Vue</p> 
-          <a href="https://github.com/sweida/vue-blog-index" target="_blank" class="vue">
+          <a href="https://github.com/luolaifa000/vue-blog-index" target="_blank" class="vue">
             <Icon type="logo-github" />
           </a>
         </div>
