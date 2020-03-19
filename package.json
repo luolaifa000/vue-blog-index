@@ -4,8 +4,8 @@
   "homepage": "https://sweida.github.io/vue-cli3-demo",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --mode development",
+    "serve": "vue-cli-service serve --mode development",
+    "build": "vue-cli-service build --mode production",
     "build:prod": "vue-cli-service build --mode production",
     "predeploy": "vue-cli-service build",
     "deploy": "gh-pages -d dist",

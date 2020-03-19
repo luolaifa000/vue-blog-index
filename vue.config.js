@@ -7,10 +7,14 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const productionGzipExtensions = ['js', 'css'];
 const isProduction = process.env.NODE_ENV === 'production';
 
+config = {
+  proxyTarget: process.env.VUE_APP_API_BASE_URL
+};
+console.log(config);
 module.exports = {
   publicPath: "./",
   assetsDir: "static",
-  outputDir: isProduction ? 'prod' : 'dist',
+  outputDir: 'dist',
   pages: {
     'blog/index': {
       // 应用入口配置，相当于单页面应用的main.js，必需项
@@ -57,7 +61,7 @@ module.exports = {
     open: false, //配置自动启动浏览器
     proxy: {
       "/apis": {
-        target: "http://local.yumancang.blog.com/api/v2", // 需要请求的地址
+        target: config.proxyTarget + '/api/v2', // 需要请求的地址
         // target: process.env.VUE_APP_URL,   // 需要请求的地址
         changeOrigin: true, // 是否跨域
         pathRewrite: {

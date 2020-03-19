@@ -22,8 +22,12 @@ Vue.use(MyPage)
 import TextLoading from '@/components/TextLoading'
 Vue.use(TextLoading)
 
+let config = {
+  proxyTarget: process.env.VUE_APP_API_BASE_URL
+};
+
 Vue.prototype.$baseUrl = process.env.VUE_APP_URL
-Vue.prototype.$staticUrl = 'http://local.yumancang.blog.com/img/'
+Vue.prototype.$staticUrl = config.proxyTarget + '/img/'
 // }
 // Vue.prototype.$baseUrl = baseUrl
 // // 引入ivew,

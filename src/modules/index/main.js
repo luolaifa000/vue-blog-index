@@ -35,13 +35,13 @@ Vue.use(TextLoading)
 // router.afterEach(route => {
 //   iView.LoadingBar.finish();
 // });
-Vue.prototype.$staticUrl = 'http://local.yumancang.blog.com/img/';
-if (process.env.NODE_ENV == "development") {
-  Vue.prototype.$baseApiUrl = "http://localhost:8080/api/v2";
-} else {
-  Vue.prototype.$baseApiUrl = "http://api.golang365.com/api/v2";
-}
-// console.log(process.env.NODE_ENV, '环境变量');
+let config = {
+  proxyTarget: process.env.VUE_APP_API_BASE_URL
+};
+
+Vue.prototype.$staticUrl = config.proxyTarget + '/img/';
+Vue.prototype.$baseApiUrl = config.proxyTarget + "/api/v2";
+console.log(process.env, '环境变量');
 
 Vue.config.productionTip = false
 
