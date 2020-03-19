@@ -16,5 +16,5 @@ RUN chmod 774 ./*.sh
 ENTRYPOINT /bin/bash /home/user00/web-queue-server.sh
 
 
-#docker build -t yumancang/blog_backend .
-#docker run -itd --name=blog_backend -p 81:81 -p 9000:9000 -p 6379:6379 yumancang/blog_backend /bin/sh
+#docker build -t yumancang/blog_front .
+#docker run -itd --name=blog_front -p 80:80 -p 8080:8080 yumancang/blog_front /bin/sh
