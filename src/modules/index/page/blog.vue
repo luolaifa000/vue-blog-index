@@ -85,7 +85,7 @@ export default {
     ]),
     getArticles() {
       this.loading = true
-      this.$post('/apis/article/list', this.pageModel).then(res => {
+      this.$post('/api/v2/article/list', this.pageModel).then(res => {
         this.pageModel.sumCount = res.data.total
         this.articles = res.data.data
         this.AddStaticUrl()
@@ -123,7 +123,7 @@ export default {
       let param = {
         tag: this.$route.query.tag
       }
-      this.$post('apis/tag/list', Object.assign(param, this.pageModel)).then(res => {
+      this.$post('api/v2/tag/list', Object.assign(param, this.pageModel)).then(res => {
         this.pageModel.sumCount = res.data.total
 
         this.articles = []
@@ -141,7 +141,7 @@ export default {
       let param = {
         classify: this.$route.query.classify
       }
-      this.$post('/apis/article/list', Object.assign(param, this.pageModel)).then(res => {
+      this.$post('/api/v2/article/list', Object.assign(param, this.pageModel)).then(res => {
         this.pageModel.sumCount = res.data.total
         this.articles = res.data.data
         this.AddStaticUrl()

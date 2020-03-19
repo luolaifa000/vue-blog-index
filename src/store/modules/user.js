@@ -29,7 +29,7 @@ const mutations = {
 // 更新state数据的动作
 const actions = {
   async UserInfo({ commit }, data){
-    const res = await http.get('/apis/user/info')
+    const res = await http.get('/api/v2/user/info')
     commit('USERINFO', res.data)
   },
   Token({ commit }, data) {

@@ -69,7 +69,7 @@ export default {
     getArticles() {
       this.loading = true
       // 获取软删除的数据 all=1
-      this.$post('/apis/article/list', this.pageModel).then(res => {
+      this.$post('/api/v2/article/list', this.pageModel).then(res => {
 
           this.articles = res.data.data
           this.pageModel.sumCount = res.data.total
@@ -94,13 +94,13 @@ export default {
     deleteBtn(id, value) {
       // 当value == true时操作下架，反之恢复文章
       if (value == true) {
-        this.$post('/apis/article/delete', {id}).then(res => {
+        this.$post('/api/v2/article/delete', {id}).then(res => {
           console.log(res.data, 'delete')
           this.$message.success(`文章${id}下架操作成功`)
         }).catch(() => {
         })
       } else {
-        this.$post('/apis/article/restored', {id}).then(res => {
+        this.$post('/api/v2/article/restored', {id}).then(res => {
           console.log(res.data, 'restored')
           this.$message.success(`文章${id}恢复成功`)
         }).catch(() => {

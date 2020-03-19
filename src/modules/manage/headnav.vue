@@ -51,7 +51,7 @@ export default {
       this.$confirm('确认退出吗?', '提示', {
         type: 'warning'
       }).then(() => {
-        this.$post('/apis/logout').then(res => {
+        this.$post('/api/v2/logout').then(res => {
           this.$message.success(res.message)
           this.Logout()
           this.$router.push('/login')

@@ -159,7 +159,7 @@ export default {
         window.open('/manage.html#/articlelist', '_blank');
       }
       if (item == 'logout') {
-        this.$post('/apis/logout').then(res => {
+        this.$post('/api/v2/logout').then(res => {
           this.$Notice.success({
             title: res.message,
             desc: '欢迎下次再来👏',

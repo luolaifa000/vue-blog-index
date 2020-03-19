@@ -65,11 +65,11 @@ npm run deploy
     https: false, // https:{type:Boolean}
     open: true, //配置自动启动浏览器
     proxy: {
-      "/apis": {
+      "/api/v2": {
         target: "http://127.0.0.1:8080/api/v2", // 需要请求的地址
         changeOrigin: true, // 是否跨域
         pathRewrite: {
-          "^/apis": "" // 替换target中的请求地址，也就是说，在请求的时候，url用'/proxy'代替'
+          "^/api/v2": "" // 替换target中的请求地址，也就是说，在请求的时候，url用'/proxy'代替'
         }
       }
       // '/foo': {

@@ -60,13 +60,12 @@ module.exports = {
     https: false, // https:{type:Boolean}
     open: false, //配置自动启动浏览器
     proxy: {
-      "/apis": {
-        target: config.proxyTarget + '/api/v2', // 需要请求的地址
-        // target: process.env.VUE_APP_URL,   // 需要请求的地址
-        changeOrigin: true, // 是否跨域
-        pathRewrite: {
-          "^/apis": "" // 替换target中的请求地址，也就是说，在请求的时候，url用'/proxy'代替'http://ip.taobao.com'
-        }
+      '/api/': {
+        target: config.proxyTarget,
+        ws: true, // proxy websockets
+        changeOrigin: true, // needed for virtual hosted sites
+        secure: false,
+        // cookieDomainRewrite: config.host
       }
     }
   },

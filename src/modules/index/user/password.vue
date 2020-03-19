@@ -84,7 +84,7 @@ export default {
     // 修改密码接口
     changePasswd() {
       this.loading = true
-      this.$post('/apis/user/resetpassword', this.formCustom).then(res => {
+      this.$post('/api/v2/user/resetpassword', this.formCustom).then(res => {
         this.alert = {
           type: 'success',
           msg: res.message

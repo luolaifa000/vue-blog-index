@@ -59,7 +59,7 @@ export default {
   methods: {
     getUsers() {
       this.loading = true
-      this.$post('/apis/user/list', this.pageModel).then(res => {
+      this.$post('/api/v2/user/list', this.pageModel).then(res => {
         this.Users = res.data.data
         this.pageModel.sumCount = res.data.total
         this.loading = false
@@ -74,7 +74,7 @@ export default {
       let params = {
         id: id
       }
-      this.$post('/apis/user', params).then(res => {
+      this.$post('/api/v2/user', params).then(res => {
         console.log(res)
       }).catch(() =>{})
     },

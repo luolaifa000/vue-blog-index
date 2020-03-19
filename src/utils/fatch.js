@@ -13,7 +13,7 @@ const service = axios.create({
 // request拦截器
 service.interceptors.request.use(
   config => {
-    if (config.url == 'apis/authentication/form') {
+    if (config.url == 'api/v2/authentication/form') {
       config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
       config.headers['deviceId'] = '9001'
     } else {

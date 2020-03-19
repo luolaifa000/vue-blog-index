@@ -36,7 +36,7 @@ const mutations = {
 // 更新state数据的动作
 const actions = {
   async WebInfo({ commit }, data) {
-    const res = await http.get('/apis/webinfo/read')
+    const res = await http.get('/api/v2/webinfo/read')
     commit('WEBINFO', res.data)
   },
   Tag({ commit }, data) {
@@ -46,7 +46,7 @@ const actions = {
     commit('CLASSIFY', data)
   },
   async Banners({ commit }, data) {
-    const res = await http.post('/apis/ad', {type: 'banner'})
+    const res = await http.post('/api/v2/ad', {type: 'banner'})
     commit('BANNERS', res.data)
   }
 }

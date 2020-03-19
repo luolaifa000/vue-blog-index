@@ -46,7 +46,7 @@
         <el-form-item label="上传图片" >
           <el-upload
             class="avatar-uploader"
-            action="/apis/image/upload"
+            action="/api/v2/image/upload"
             name="image"
             :headers='headers'
             :show-file-list="false"
@@ -108,7 +108,7 @@ export default {
   },
   methods: {
     getAd() {
-      this.$post('/apis/ad/list', this.pageModel).then(res => {
+      this.$post('/api/v2/ad/list', this.pageModel).then(res => {
         console.log(res.data)
         this.adlist = res.data.data
         this.pageModel.sumCount = res.data.total
@@ -132,7 +132,7 @@ export default {
     // 删除图片
     handleRemove() {
       let param = {image: this.form.img}
-      this.$post('/apis/image/delete', param).then(res => {
+      this.$post('/api/v2/image/delete', param).then(res => {
         this.$message.success(res.message)
       })
     },
@@ -153,7 +153,7 @@ export default {
       this.$confirm('是否删除该广告图?', '提示', {
         type: 'warning'
       }).then(() => {
-        this.$post('/apis/ad/delete', {id: item.id}).then(res => {
+        this.$post('/api/v2/ad/delete', {id: item.id}).then(res => {
           this.$message.success(res.message)
           this.adlist.splice(this.adlist.indexOf(item), 1)
         })
@@ -173,7 +173,7 @@ export default {
     },
     // 提交新增
     addSubmit() {
-      this.$post('/apis/ad/add', this.form).then(res => {
+      this.$post('/api/v2/ad/add', this.form).then(res => {
         this.$message.success(res.message)
         this.dialogFormVisible = false
         this.getAd()
@@ -189,7 +189,7 @@ export default {
     },
     // 提交编辑
     editSubmit() {
-      this.$post('/apis/ad/edit', this.form).then(res => {
+      this.$post('/api/v2/ad/edit', this.form).then(res => {
         this.$message.success(res.message)
         this.dialogFormVisible = false
         this.getAd()

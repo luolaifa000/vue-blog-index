@@ -64,14 +64,14 @@ export default {
     }
   },
   created() {
-    this.$get('/apis/webinfo/read').then(res => {
+    this.$get('/api/v2/webinfo/read').then(res => {
       this.webinfo = res.data
     }).catch(() => {
     })
   },
   methods: {
     submit() {
-      this.$post('/apis/webinfo/set', this.webinfo).then(res => {
+      this.$post('/api/v2/webinfo/set', this.webinfo).then(res => {
         this.$message.success(res.message)
       }).catch(() => {
       })

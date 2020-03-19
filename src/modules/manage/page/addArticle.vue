@@ -42,7 +42,7 @@
           <el-form-item label="文章封面" >
             <el-upload
               class="avatar-uploader"
-              action="/apis/image/upload"
+              action="/api/v2/image/upload"
               name="image"
               :headers='headers'
               :show-file-list="false"
@@ -125,7 +125,7 @@ export default {
   methods: {
     addBtn() {
       this.loading = true
-      this.$post('/apis/article/add', this.form).then(res => {
+      this.$post('/api/v2/article/add', this.form).then(res => {
         this.$message.success(res.message)
         this.$router.push('/articlelist')
       })
@@ -136,7 +136,7 @@ export default {
         id: this.$route.params.id,
         all: 1
       }
-      this.$post('/apis/article', params).then(res => {
+      this.$post('/api/v2/article', params).then(res => {
         console.log(res.data)
         this.articleLoading = false
         this.form = res.data
@@ -148,7 +148,7 @@ export default {
     },
     editBtn() {
       this.loading = true
-      this.$post('/apis/article/edit', this.form).then(res => {
+      this.$post('/api/v2/article/edit', this.form).then(res => {
         this.$message.success(res.message)
         this.$router.push('/articlelist')
       })
@@ -167,7 +167,7 @@ export default {
     // 删除图片
     handleRemove() {
       let param = {image: this.form.img}
-      this.$post('/apis/image/delete', param).then(res => {
+      this.$post('/api/v2/image/delete', param).then(res => {
         this.$message.success(res.message)
       })
     },
@@ -190,7 +190,7 @@ export default {
         let formdata = new FormData()
         formdata.append('image', $file)
         Axios({
-            url: '/apis/image/upload',
+            url: '/api/v2/image/upload',
             method: 'post',
             data: formdata,
             headers:{
@@ -208,7 +208,7 @@ export default {
     $imgDel(pos) {
         console.log(pos, '图片名')
         Axios({
-            url: '/apis/image/delete',
+            url: '/api/v2/image/delete',
             method: 'post',
             data: {
               image: pos
