@@ -11,9 +11,9 @@
         <div class="examp">
           <h4>格式示例</h4>
           <p>名称: 九歌</p>
-          <p>链接: http://golang365.com</p>
-          <p>头像: https://avatars2.githubusercontent.com/u/23181508?s=460&v=4</p>
-          <p>简介: 集颜值和技术于一身的程序猿</p>
+          <p>链接: http://www.yumancang.club</p>
+          <p>头像: https://avatars1.githubusercontent.com/u/8252640?s=460&u=43e8d298c55e735e5f6952f1e7870a67da9f0eaf&v=4</p>
+          <p>简介: 不要把递归想复杂，想简单点</p>
         </div>
 
       </div>
