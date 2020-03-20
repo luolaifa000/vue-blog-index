@@ -19,7 +19,7 @@
           </el-menu-item>
           <el-submenu class="user-nav" index="">
             <template slot="title">
-              <img src="../../assets/avatar/admin.jpg" class="userimg">
+              <img src="../../assets/avatar/admin.png" class="userimg">
               <span class="admin-name">{{user.username}}</span>
             </template>
             <el-menu-item index="/resetpassword">修改密码</el-menu-item>

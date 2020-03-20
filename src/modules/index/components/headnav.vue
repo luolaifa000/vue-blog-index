@@ -13,7 +13,7 @@
           <a @click="goRouter(item.url)">{{item.name}}</a>
         </li>
         <li>
-          <a href="http://blog-doc.golang365.com" target="_blank">API文档</a>
+          <a href="https://github.com/luolaifa000/" target="_blank">github</a>
         </li>
       </div>
 
