@@ -27,7 +27,7 @@ let config = {
 };
 
 Vue.prototype.$baseUrl = process.env.VUE_APP_URL
-Vue.prototype.$staticUrl = config.proxyTarget + '/img/'
+Vue.prototype.$staticUrl = config.proxyTarget + '/img_backend/'
 // }
 // Vue.prototype.$baseUrl = baseUrl
 // // 引入ivew,
