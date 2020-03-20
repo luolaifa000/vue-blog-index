@@ -2,7 +2,7 @@
   <main>
     <!-- <header>基础设置</header> -->
     <section class="wrap scroll">
-      <el-form v-model="webinfo" label-width="130px">
+      <el-form v-model="webinfo" label-width="130px" v-loading="loading">
         <el-form-item label="网站标题">
           <el-input size="medium" v-model="webinfo.title"> </el-input>
         </el-form-item>
@@ -39,7 +39,7 @@
       </el-form>
     </section>
     <footer>
-      <el-button type="primary" size="small" @click="submit">保　存</el-button>
+      <el-button type="primary" size="small" @click="submit" :disabled="saveDis">保　存</el-button>
     </footer>
   </main>
 </template>
@@ -49,6 +49,8 @@
 export default {
   data() {
     return {
+      saveDis: false,
+      loading: true,
       webinfo: {
         title: '',
         keyword: '',
@@ -64,17 +66,26 @@ export default {
     }
   },
   created() {
+    this.loading = true;
     this.$get('/api/v2/webinfo/read').then(res => {
+      
       this.webinfo = res.data
+      this.loading = false;
     }).catch(() => {
+
     })
   },
   methods: {
     submit() {
+      this.loading = true;
+      this.saveDis = true;
       this.$post('/api/v2/webinfo/set', this.webinfo).then(res => {
+        this.loading = false;
+        this.saveDis = false;
         this.$message.success(res.message)
       }).catch(() => {
       })
+      
     }
   }
 }

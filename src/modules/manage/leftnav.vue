@@ -1,6 +1,6 @@
 <template>
   <aside class="scroll">
-    <div class="logo"><img src="../../assets/logo.png" alt=""></div>
+    <div class="logo"><img src="https://avatars1.githubusercontent.com/u/8252640?s=460&u=43e8d298c55e735e5f6952f1e7870a67da9f0eaf&v=4" alt=""></div>
     <router-link :to="item.url" tag="li" v-for="(item, index) in nav" :key="index">
       <i class="animate05 i"></i>
       <i class="el-icon-document"></i><span>{{item.name}}</span>

@@ -55,7 +55,7 @@
         </div>
       </el-form>
       <!-- @imgAdd="$imgAdd" @imgDel="$imgDel" -->
-      <mavon-editor ref=md @imgAdd="$imgAdd" v-model="form.content" class="makedown" />
+      <mavon-editor ref=md @imgAdd="$imgAdd" @imgDel="$imgDel" v-model="form.content" class="makedown" />
     </section>
     <footer>
       <el-button type="primary" size="small" @click="addBtn" :loading="loading" v-if="!$route.params.id">保　存</el-button>
@@ -128,6 +128,9 @@ export default {
       this.$post('/api/v2/article/add', this.form).then(res => {
         this.$message.success(res.message)
         this.$router.push('/articlelist')
+        this.loading = false
+      }).catch(() => {
+        this.loading = false
       })
     },
     getArticle() {
@@ -144,6 +147,8 @@ export default {
         if (this.form.img) {
           this.blogBanner = this.$staticUrl+this.form.img
         }
+      }).catch(() => {
+        this.articleLoading = false
       })
     },
     editBtn() {
@@ -151,6 +156,8 @@ export default {
       this.$post('/api/v2/article/edit', this.form).then(res => {
         this.$message.success(res.message)
         this.$router.push('/articlelist')
+        this.loading = false
+      }).catch(() => {
       })
     },
     // 上传图片，获取图片地址
@@ -167,8 +174,9 @@ export default {
     // 删除图片
     handleRemove() {
       let param = {image: this.form.img}
-      this.$post('/api/v2/image/delete', param).then(res => {
+      this.$post('/api/v2/image/titleDelete', param).then(res => {
         this.$message.success(res.message)
+      }).catch(() => {
       })
     },
     // 限制图片大小和格式
@@ -202,7 +210,8 @@ export default {
           console.log(111, url, url.data.data.url, $file)
             // 第二步.将返回的url替换到文本原位置![...](0) -> ![...](url)
           this.$refs.md.$img2Url(pos, this.$staticUrl+url.data.data.url)
-        })
+        }).catch(() => {
+      })
     },
     // 因为拿不到图片名称，所以无法删除图片
     $imgDel(pos) {
@@ -220,7 +229,8 @@ export default {
         }).then((url) => {
           console.log(111, url, url.data.data.url, $file)
           this.$refs.md.$img2Url(pos, this.$staticUrl+url.data.data.url)
-        })
+        }).catch(() => {
+      })
     }
   }
 }

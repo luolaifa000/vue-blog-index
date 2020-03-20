@@ -122,7 +122,7 @@ export default {
     handleAvatarSuccess(res, file) {
       // 如果已经有图片则先删除图片
       if (this.form.url) {
-        this.handleRemove()
+        this.handleRemove(this.form.url)
       }
 
       this.imageUrl = URL.createObjectURL(file.raw);
@@ -130,9 +130,9 @@ export default {
       this.form.url = res.data.url
     },
     // 删除图片
-    handleRemove() {
-      let param = {image: this.form.img}
-      this.$post('/api/v2/image/delete', param).then(res => {
+    handleRemove(url) {
+      let param = {image: url}
+      this.$post('/api/v2/image/titleDelete', param).then(res => {
         this.$message.success(res.message)
       })
     },
@@ -162,7 +162,7 @@ export default {
     },
     // 打开新增广告
     addBtn() {
-      this.title = '新增友情链接'
+      this.title = '新增广告'
       this.dialogFormVisible = true
       this.imageUrl = ''
       this.form = {

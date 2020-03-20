@@ -6,7 +6,7 @@
     <div class="menu">
       <div class="left">
         <div class="logo">
-          <img src="@/assets/logo.png" alt="">
+          <img src="https://avatars1.githubusercontent.com/u/8252640?s=460&u=43e8d298c55e735e5f6952f1e7870a67da9f0eaf&v=4" alt="">
         </div>
         <!-- 菜单 -->
         <li v-for="(item, index) in nav" :key="index" :class="{active: $route.path==item.url}">
